@@ -1,7 +1,7 @@
 SimpleTwitterClient a.k.a. Basic Twitter
 ========================================
 
-A twitter client written in Android.
+A twitter client written for Android.
 
 Time spent: 15-20 hours.
 
@@ -11,6 +11,7 @@ Completed user stories:
 - User can view the tweets from their home timeline.
 - User should be able to see the username, name, body and timestamp for each tweet.
 - User should be displayed the relative timestamp for a tweet "8m", "7h".
+- User can view more tweets as they scroll with infinite pagination.
 
 - User can compose a new tweet.
 - User can click a “Compose” icon in the Action Bar on the top right.
@@ -22,5 +23,4 @@ Completed user stories:
 - Optional: Network requests using AsyncTask.
 - Optional: Login screen removed from history / back stack.
 
-In Progress:
-- User can view more tweets as they scroll with infinite pagination - In progress. 
+
