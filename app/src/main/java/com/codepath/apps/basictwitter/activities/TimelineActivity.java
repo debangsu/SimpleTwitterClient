@@ -52,7 +52,7 @@ public class TimelineActivity extends Activity {
         setContentView(R.layout.activity_timeline);
         client = TwitterApplication.getRestClient();
         // Populate timeline from Twitter REST API.
-        doLoad(null, true);
+//        doLoad(null, true);
         // TODO(debangsu): Use ViewHolder pattern.
         lvTweets = (ListView) findViewById(R.id.lvTweets);
         tweets = new ArrayList<Tweet>();
@@ -63,7 +63,12 @@ public class TimelineActivity extends Activity {
             @Override
             protected void onLoadMore(@Nullable Long maxId, int totalItemCount) {
                 // Triggered only when new data needs to be appended to adapterView.
-                doLoad(maxId, false); // Do not clear adapter. Just append.
+                if (firstTime) {
+                    doLoad(maxId, true); // Clear adapter.
+                    firstTime = false;
+                } else {
+                    doLoad(maxId, false); // Do not clear adapter. Just append.
+                }
             }
         });
     }
@@ -97,7 +102,6 @@ public class TimelineActivity extends Activity {
         client.getLoggedInUserCredentials(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(JSONObject json) {
-                Log.d("debug", json.toString());
                 User currentUser = User.fromJSON(json);
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
                         getApplicationContext());
@@ -152,7 +156,6 @@ public class TimelineActivity extends Activity {
                 new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(JSONArray json) {
-                Log.d("debug", json.toString());
                 if (clearAdapter) {
                     aTweets.clear();
                 }

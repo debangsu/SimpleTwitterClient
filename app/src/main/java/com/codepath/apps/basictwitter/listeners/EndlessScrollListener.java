@@ -18,6 +18,7 @@ public abstract class EndlessScrollListener implements AbsListView.OnScrollListe
     private int previousTotalItemCount = 0;
     // True if waiting for the last data set to load.
     private boolean loading = false;
+    protected boolean firstTime = true;
 
     protected EndlessScrollListener() {
     }
