@@ -1,5 +1,5 @@
-SimpleTwitterClient
-===================
+SimpleTwitterClient a.k.a. Basic Twitter
+========================================
 
 A twitter client written in Android.
 
