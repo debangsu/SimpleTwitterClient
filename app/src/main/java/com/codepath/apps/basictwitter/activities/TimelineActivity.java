@@ -5,21 +5,27 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.R;
 import com.codepath.apps.basictwitter.TwitterApplication;
 import com.codepath.apps.basictwitter.adapters.TweetAdapter;
 import com.codepath.apps.basictwitter.clients.TwitterClient;
+import com.codepath.apps.basictwitter.listeners.EndlessScrollListener;
 import com.codepath.apps.basictwitter.models.Tweet;
 import com.codepath.apps.basictwitter.models.User;
 import com.google.gson.Gson;
+import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.apache.http.Header;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -45,30 +51,19 @@ public class TimelineActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
         client = TwitterApplication.getRestClient();
-        populateTimeline();
+        // Populate timeline from Twitter REST API.
+        doLoad(null, true);
         // TODO(debangsu): Use ViewHolder pattern.
         lvTweets = (ListView) findViewById(R.id.lvTweets);
         tweets = new ArrayList<Tweet>();
         aTweets = new TweetAdapter(this, tweets);
         lvTweets.setAdapter(aTweets);
         upsertCurrentUserCredentials();
-    }
-
-    /**
-     * Populates timeline from Twitter REST API.
-     */
-    public void populateTimeline() {
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
+        lvTweets.setOnScrollListener(new EndlessScrollListener() {
             @Override
-            public void onSuccess(JSONArray json) {
-                Log.d("debug", json.toString());
-                aTweets.addAll(fromJSONArray(json));
-            }
-
-            @Override
-            public void onFailure(Throwable e, String s) {
-                Log.d("debug", e.toString());
-                Log.d("debug", s.toString());
+            protected void onLoadMore(@Nullable Long maxId, int totalItemCount) {
+                // Triggered only when new data needs to be appended to adapterView.
+                doLoad(maxId, false); // Do not clear adapter. Just append.
             }
         });
     }
@@ -127,8 +122,6 @@ public class TimelineActivity extends Activity {
      */
     public void onCompose(MenuItem mi) {
         Intent i = new Intent(this, ComposeActivity.class);
-        Tweet tweet = new Tweet();
-        i.putExtra("tweet", new Tweet());
         startActivityForResult(i, COMPOSED_TWEET_RESULT);
     }
 
@@ -147,5 +140,31 @@ public class TimelineActivity extends Activity {
             // Inserts at the top of timeline.
             aTweets.insert(composedTweet, 0);
         }
+    }
+
+    /**
+     * Loads the next set of results from Twitter REST API home timeline endpoint.
+     * @param maxId User requests tweet IDs <= maxId i.e. older than it.
+     * @param clearAdapter If true, clear the adapter before appending.
+     */
+    private void doLoad(@Nullable Long maxId, final boolean clearAdapter) {
+        client.getHomeTimeline(EndlessScrollListener.TWEET_COUNT_PER_GET, maxId,
+                new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(JSONArray json) {
+                Log.d("debug", json.toString());
+                if (clearAdapter) {
+                    aTweets.clear();
+                }
+                aTweets.addAll(fromJSONArray(json));
+            }
+
+            @Override
+            public void onFailure(Throwable e, String s) {
+                Log.d("ERROR:  ", e.toString());
+                Log.d("ERROR: ", s.toString());
+                Toast.makeText(TimelineActivity.this, "Fetch failure.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

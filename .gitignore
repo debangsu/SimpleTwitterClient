@@ -12,6 +12,9 @@
 bin/
 gen/
 
+# Intermediate files
+app/build/
+
 # Gradle files
 .gradle/
 build/

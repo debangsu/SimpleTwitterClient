@@ -1,6 +1,7 @@
 package com.codepath.apps.basictwitter.clients;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 
 import com.codepath.apps.basictwitter.helpers.NetworkUtils;
 import com.codepath.oauth.OAuthBaseClient;
@@ -35,13 +36,16 @@ public class TwitterClient extends OAuthBaseClient {
     /**
      * Performs GET request to retrieve user's home timeline.
      */
-    public void getHomeTimeline(AsyncHttpResponseHandler handler) {
+    public void getHomeTimeline(Integer count, @Nullable Long maxId, AsyncHttpResponseHandler handler) {
         if (!NetworkUtils.isNetworkAvailable(this.context)) {
             return;
         }
         String apiUrl = getApiUrl(HOME_TIMELINE_ENDPOINT);
         RequestParams params = new RequestParams();
-        params.put("since_id", "1");
+        params.put("count", String.valueOf(count));
+        if (maxId != null) {
+            params.put("max_id", String.valueOf(maxId));
+        }
         client.get(apiUrl, params, handler);
     }
 
