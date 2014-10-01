@@ -17,6 +17,7 @@ Completed user stories:
 - User can then enter a new tweet and post this to twitter.
 - User is taken back to home timeline with new tweet visible in timeline.
 - Optional: Improve the user interface and theme the app to feel "twitter branded".
+- Optional: Cache user profile info using SharedPreferences.
 - Optional: Connectivity checks using ConnectivityManager.
 - Optional: Network requests using AsyncTask.
 
