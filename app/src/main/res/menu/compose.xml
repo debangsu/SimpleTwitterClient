@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codepath.apps.basictwitter.activities.ComposeActivity" >
+    <item
+        android:id="@+id/miTweet"
+        android:showAsAction="always"
+        app:showAsAction="always"
+        android:onClick="onComposeTweet"
+        android:title="@string/compose_tweet_label">
+    </item>
+</menu>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/ivProfileImage"
+        android:paddingRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_name_label"
+        android:id="@+id/tvUserName"
+        android:paddingRight="5dp"
+        android:layout_toRightOf="@id/ivProfileImage"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_screen_name_label"
+        android:id="@+id/tvUserScreenName"
+        android:layout_above="@+id/tvBody"
+        android:layout_alignBottom="@id/tvUserName"
+        android:layout_toRightOf="@+id/tvUserName"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relative_time_label"
+        android:id="@+id/tvRelativeTime"
+        android:gravity="right"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/tvBody"
+        android:layout_alignBottom="@id/tvUserName"
+        android:layout_toRightOf="@id/tvUserScreenName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tweet_body_label"
+        android:id="@+id/tvBody"
+        android:layout_below="@id/tvUserName"
+        android:layout_alignLeft="@id/tvUserName"/>
+
+</RelativeLayout>

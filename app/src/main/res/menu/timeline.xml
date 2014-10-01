@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codepath.apps.basictwitter.activities.TimelineActivity" >
+    <item
+        android:id="@+id/miCompose"
+        android:icon="@drawable/ic_compose"
+        android:showAsAction="always"
+        app:showAsAction="always"
+        android:onClick="onCompose"
+        android:title="@string/compose_label">
+    </item>
+</menu>

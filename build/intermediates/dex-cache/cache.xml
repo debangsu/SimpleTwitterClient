@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/ActiveAndroid-3.1-adcddac4c58-062b3f580b11ccf1211b575ba00d6079744d3189.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/libs/ActiveAndroid-3.1-adcddac4c58.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e550c03ed8bcfe3b9f97d8c5ce6e8ee305f3beed"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.8.4-9e93360dd546004952d8f82416c5c5149717ad8c.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/libs/universal-image-loader-1.8.4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="eee81e43531ce82db1781c5a8b27781ca384eede"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.3-917f310d4cd9dbe569dbfbf478c7aabe66e97b77.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/libs/android-async-http-1.4.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f70e680861fdf9449819003e7799a4e9aca047f8"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/classes-46883939d1226299304510244676f8fda1df5591.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/scribe-codepath-eb290d4665555fc8f5405f82ad72c5718515c6ea.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/libs/scribe-codepath.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="6e0748acc9e7be0695de0d38016d260df52d9167"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/codepath-oauth-0.3.0-b48f24ab6c389674c371620ee8fed23a65541e1e.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/libs/codepath-oauth-0.3.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="b90f1c3541987f690e2fb854775914cc23266250"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/codepath-utils-3d8b2454cc0d69df509556097a4e3acd78844a2f.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/libs/codepath-utils.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="10901a5ef726eacf1b2443b7f38dc4cc9cd3f7d4"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-8e8bbc4f709589195f506a0b849db3888b72dc09.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/classes-cd37bf3775f7892ab54fbcffc9524b04f520e706.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+    <item
+        dex="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/build/intermediates/pre-dexed/debug/android-support-v4-81482e7ee58a0a132b278d0967b7a38eccbe6c75.jar"
+        jar="/Users/debangsu/development/androidstudio2/SimpleTwitterClient/app/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="bd6479f5dd592790607e0504e66e0f31c2b4d308"/>
+
+</pre-dex-items>

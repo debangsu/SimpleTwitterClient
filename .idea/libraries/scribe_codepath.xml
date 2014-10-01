@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="scribe-codepath">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/scribe-codepath.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
