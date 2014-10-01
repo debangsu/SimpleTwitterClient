@@ -20,6 +20,7 @@ Completed user stories:
 - Optional: Cache user profile info using SharedPreferences.
 - Optional: Connectivity checks using ConnectivityManager.
 - Optional: Network requests using AsyncTask.
+- Optional: Login screen removed from history / back stack.
 
 In Progress:
 - User can view more tweets as they scroll with infinite pagination - In progress. 
