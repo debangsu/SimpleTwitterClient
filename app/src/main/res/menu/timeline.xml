@@ -7,7 +7,17 @@
         android:icon="@drawable/ic_compose"
         android:showAsAction="always"
         app:showAsAction="always"
-        android:onClick="onCompose"
         android:title="@string/compose_label">
+        <!--android:onClick="onCompose"-->
+
+    </item>
+
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/ic_profile"
+        android:showAsAction="always"
+        app:showAsAction="always"
+        android:title="@string/profile_label">
+        <!--android:onClick="onProfileView"-->
     </item>
 </menu>

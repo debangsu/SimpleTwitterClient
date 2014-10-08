@@ -2,4 +2,8 @@
 <resources>
     <color name="action_bar">#55ACEE</color>
     <color name="login_button">#55ACEE</color>
+    <color name="tab_text">#55ACEE</color>
+    <color name="tab_indicator">#55ACEE</color>
+    <color name="tab_background">#FFFFFF</color>
+    <color name="tab_divider">#FFFFFF</color>
 </resources>

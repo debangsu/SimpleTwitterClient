@@ -39,7 +39,7 @@
         android:layout_alignParentRight="true"
         android:layout_above="@id/tvBody"
         android:layout_alignBottom="@id/tvUserName"
-        android:layout_toRightOf="@id/tvUserScreenName" />
+        android:layout_toRightOf="@id/tvUserDescription" />
 
     <TextView
         android:layout_width="wrap_content"

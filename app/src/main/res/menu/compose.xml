@@ -6,7 +6,7 @@
         android:id="@+id/miTweet"
         android:showAsAction="always"
         app:showAsAction="always"
-        android:onClick="onComposeTweet"
         android:title="@string/compose_tweet_label">
+        <!--android:onClick="onComposeTweet"-->
     </item>
 </menu>

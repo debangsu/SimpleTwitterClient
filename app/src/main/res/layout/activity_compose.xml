@@ -28,8 +28,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/user_screen_name_label"
-        android:id="@+id/tvUserScreenName"
+        android:text="@string/user_description_label"
+        android:id="@+id/tvUserDescription"
         android:layout_below="@+id/tvUserName"
         android:layout_toRightOf="@id/ivProfileImage"/>
 
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/etBody"
         android:hint="@string/compose_hint"
-        android:layout_below="@+id/tvUserScreenName"
+        android:layout_below="@+id/tvUserDescription"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

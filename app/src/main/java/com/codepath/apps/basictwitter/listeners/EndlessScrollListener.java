@@ -10,6 +10,7 @@ import com.codepath.apps.basictwitter.adapters.TweetAdapter;
  */
 public abstract class EndlessScrollListener implements AbsListView.OnScrollListener {
     public static final int TWEET_COUNT_PER_GET = 30;
+    protected boolean firstTime = true;
     // Minimum amount of items below current scroll position before loading more.
     private int visibleThreshold = 5;
     // Id of the oldest loaded tweet.
@@ -18,7 +19,6 @@ public abstract class EndlessScrollListener implements AbsListView.OnScrollListe
     private int previousTotalItemCount = 0;
     // True if waiting for the last data set to load.
     private boolean loading = false;
-    protected boolean firstTime = true;
 
     protected EndlessScrollListener() {
     }

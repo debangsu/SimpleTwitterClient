@@ -18,6 +18,7 @@
         android:icon="@drawable/ic_twitter_blue"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!--android:theme="@style/Theme.AppCompat.Light" >-->
         <meta-data
             android:name="AA_DB_NAME"
             android:value="RestClient.db" />
@@ -28,8 +29,8 @@
         <activity
             android:name=".activities.LoginActivity"
             android:icon="@drawable/ic_twitter_white"
-            android:noHistory="true"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,16 +54,34 @@
             android:parentActivityName=".activities.LoginActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.codepath.apps.basictwitter.LoginActivity" />
+                android:value="com.codepath.apps.basictwitter.activities.LoginActivity" />
         </activity>
         <activity
             android:name=".activities.ComposeActivity"
             android:label="@string/title_activity_compose"
+            android:icon="@drawable/ic_twitter_white"
             android:parentActivityName=".activities.TimelineActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.codepath.apps.basictwitter.TimelineActivity" />
+                android:value="com.codepath.apps.basictwitter.activities.TimelineActivity" />
+        </activity>
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:icon="@drawable/ic_twitter_white"
+            android:parentActivityName=".activities.TimelineActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.codepath.apps.basictwitter.activities.TimelineActivity" />
+        </activity>
+        <activity
+            android:name=".activities.ThirdPartyActivity"
+            android:label="@string/title_activity_third_party"
+            android:icon="@drawable/ic_twitter_white"
+            android:parentActivityName=".activities.TimelineActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.codepath.apps.basictwitter.activities.TimelineActivity" />
         </activity>
     </application>
-
 </manifest>

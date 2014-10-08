@@ -1,6 +1,7 @@
 package com.codepath.apps.basictwitter.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codepath.apps.basictwitter.R;
+import com.codepath.apps.basictwitter.activities.ThirdPartyActivity;
 import com.codepath.apps.basictwitter.helpers.DateTimeUtils;
 import com.codepath.apps.basictwitter.models.Tweet;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -37,16 +39,28 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         // Find views within template
         ImageView ivProfileImage = (ImageView) v.findViewById(R.id.ivProfileImage);
         ivProfileImage.setImageResource(android.R.color.transparent);
-        TextView tvUserName = (TextView) v.findViewById(R.id.tvUserName);
-        tvUserName.setText(Html.fromHtml("<b> " + tweet.getUser().getName() + " </b>"));
-        TextView tvUserScreenName = (TextView) v.findViewById(R.id.tvUserScreenName);
-        tvUserScreenName.setText(tweet.getUser().getScreenName());
+        ivProfileImage.setTag(tweet.getUser().getScreenName());
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), ThirdPartyActivity.class);
+                i.putExtra("screenName", v.findViewById(R.id.ivProfileImage).getTag().toString());
+                v.getContext().startActivity(i);
+            }
+        });
+
+        if (tweet.getUser() != null) {
+            TextView tvUserName = (TextView) v.findViewById(R.id.tvUserName);
+            tvUserName.setText(Html.fromHtml("<b> " + tweet.getUser().getName() + " </b>"));
+            TextView tvUserScreenName = (TextView) v.findViewById(R.id.tvUserScreenName);
+            tvUserScreenName.setText(tweet.getUser().getScreenName());
+            ImageLoader imageLoader = ImageLoader.getInstance();
+            imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), ivProfileImage);
+        }
         TextView tvBody = (TextView) v.findViewById(R.id.tvBody);
         tvBody.setText(tweet.getBody());
         TextView tvRelativeTime = (TextView) v.findViewById(R.id.tvRelativeTime);
         tvRelativeTime.setText(DateTimeUtils.getRelativeTimeAgo(tweet.getCreatedAt()));
-        ImageLoader imageLoader = ImageLoader.getInstance();
-        imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), ivProfileImage);
         return v;
     }
 }

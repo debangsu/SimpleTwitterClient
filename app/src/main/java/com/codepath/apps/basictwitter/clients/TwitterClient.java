@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import com.codepath.apps.basictwitter.helpers.NetworkUtils;
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.scribe.builder.api.Api;
@@ -25,6 +26,8 @@ public class TwitterClient extends OAuthBaseClient {
     public static final String REST_CALLBACK_URL =
             "oauth://cpbasictweets"; // (here and in manifest)
     public static final String HOME_TIMELINE_ENDPOINT = "statuses/home_timeline.json";
+    public static final String MENTIONS_TIMELINE_ENDPOINT = "statuses/mentions_timeline.json";
+    public static final String USER_TIMELINE_ENDPOINT = "statuses/user_timeline.json";
     public static final String VERIFY_CREDENTIALS_ENDPOINT = "account/verify_credentials.json";
     private static final String POST_TWEET_ENDPOINT = "statuses/update.json";
 
@@ -34,17 +37,21 @@ public class TwitterClient extends OAuthBaseClient {
     }
 
     /**
-     * Performs GET request to retrieve user's home timeline.
+     * Performs GET Request to retrieve timeline e.g. home, mentions, user timeslines.
      */
-    public void getHomeTimeline(Integer count, @Nullable Long maxId, AsyncHttpResponseHandler handler) {
+    public void getTimeline(String endpoint, Integer count, @Nullable Long maxId,
+                            @Nullable String screenName, JsonHttpResponseHandler handler) {
         if (!NetworkUtils.isNetworkAvailable(this.context)) {
             return;
         }
-        String apiUrl = getApiUrl(HOME_TIMELINE_ENDPOINT);
+        String apiUrl = getApiUrl(endpoint);
         RequestParams params = new RequestParams();
         params.put("count", String.valueOf(count));
         if (maxId != null) {
             params.put("max_id", String.valueOf(maxId));
+        }
+        if (screenName != null) {
+            params.put("screen_name", screenName);
         }
         client.get(apiUrl, params, handler);
     }

@@ -26,6 +26,9 @@ public class User implements Parcelable {
     private long uid;
     private String screenName;
     private String profileImageUrl;
+    private String description;
+    private Long followersCount;
+    private Long followingCount;
 
     public User() {
     }
@@ -45,6 +48,9 @@ public class User implements Parcelable {
             user.uid = jsonObject.getLong("id");
             user.screenName = jsonObject.getString("screen_name");
             user.profileImageUrl = jsonObject.getString("profile_image_url");
+            user.description = jsonObject.getString("description");
+            user.followersCount = jsonObject.getLong("followers_count");
+            user.followingCount = jsonObject.getLong("friends_count");
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -84,6 +90,30 @@ public class User implements Parcelable {
         this.profileImageUrl = profileImageUrl;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getFollowersCount() {
+        return followersCount;
+    }
+
+    public void setFollowersCount(Long followerCount) {
+        this.followersCount = followerCount;
+    }
+
+    public Long getFollowingCount() {
+        return followingCount;
+    }
+
+    public void setFollowingCount(Long followingCount) {
+        this.followingCount = followingCount;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -95,6 +125,9 @@ public class User implements Parcelable {
         dest.writeLong(uid);
         dest.writeString(screenName);
         dest.writeString(profileImageUrl);
+        dest.writeString(description);
+        dest.writeLong(followersCount);
+        dest.writeLong(followingCount);
     }
 
     private void readFromParcel(Parcel source) {
@@ -102,5 +135,8 @@ public class User implements Parcelable {
         this.uid = source.readLong();
         this.screenName = source.readString();
         this.profileImageUrl = source.readString();
+        this.description = source.readString();
+        this.followersCount = source.readLong();
+        this.followingCount = source.readLong();
     }
 }

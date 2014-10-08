@@ -1,15 +1,29 @@
 <resources>
-
     <!--
         Base application theme for API 14+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="Theme.Base.AppCompat.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
-        <item name="android:actionBarStyle">@style/ActionBarTheme</item>
+        <!--<item name="android:actionBarStyle">@style/ActionBarTheme</item>-->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
+        <item name="@android:attr/actionBarTabTextStyle">@style/TabTextStyle</item>
     </style>
     <style name="ActionBarTheme" parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/action_bar</item>
+    </style>
+    <style name="ActionBarStyle" parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/action_bar</item>
+        <item name="android:backgroundStacked">@color/tab_background</item>
+    </style>
+    <style name="TabStyle" parent="android:Widget.Holo.Light.ActionBar.TabBar">
+        <item name="android:background">@color/tab_background</item>
+    </style>
+    <style name="TabTextStyle" parent="android:Widget.Holo.Light.ActionBar.TabText">
+        <item name="android:textColor">@color/tab_text</item>
     </style>
 </resources>
