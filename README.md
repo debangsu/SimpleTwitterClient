@@ -23,4 +23,5 @@ Completed user stories:
 - Optional: Network requests using AsyncTask.
 - Optional: Login screen removed from history / back stack.
 
-
+Walkthrough of all user stories: 
+![Basic Twitter walkthrough](simplertwitterclient3.gif)
