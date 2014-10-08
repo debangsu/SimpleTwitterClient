@@ -38,4 +38,4 @@ Completed user stories:
 - Optional: Implement tabs in a gingerbread-compatible approach
 
 Walkthrough of all user stories: 
-![Basic Twitter walkthrough](simplertwitterclient3.gif)
+![Basic Twitter walkthrough](simplertwitterclient4.gif)
