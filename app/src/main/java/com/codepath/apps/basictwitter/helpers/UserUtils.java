@@ -48,16 +48,22 @@ public class UserUtils {
         if (tvUserDescription != null) {
             tvUserDescription.setText(user.getDescription());
         }
+        TextView tvTweetsCount = (TextView) activity.findViewById(R.id.tvTweetsCount);
+        if (tvTweetsCount != null) {
+            tvTweetsCount.setText(Html.fromHtml("<b>" + String.valueOf(user.getTweetsCount())
+                    + "</b> <br> TWEETS"));
+        }
         TextView tvFollowers = (TextView) activity.findViewById(R.id.tvFollowers);
         if (tvFollowers != null) {
             tvFollowers.setText(Html.fromHtml("<b>" + String.valueOf(user.getFollowersCount())
-                    + "</b> Followers"));
+                    + "</b> <br> FOLLOWERS"));
         }
         TextView tvFollowing = (TextView) activity.findViewById(R.id.tvFollowing);
         if (tvFollowing != null) {
             tvFollowing.setText(Html.fromHtml("<b>" + String.valueOf(user.getFollowingCount())
-                    + "</b> Following"));
+                    + "</b> <br> FOLLOWING"));
         }
+
         if (profileImage == null) {
             new UserUtils.ImageLoaderTask(activity, profileImage).execute(
                     user.getProfileImageUrl());

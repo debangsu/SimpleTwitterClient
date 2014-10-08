@@ -5,16 +5,13 @@
     android:id="@+id/rlLayout"
     tools:context="com.codepath.apps.basictwitter.activities.TimelineActivity">
 
-    <!--<fragment-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:name="com.codepath.apps.basictwitter.fragments.HomeTimelineFragment"-->
-        <!--android:id="@+id/fragment_timeline"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--tools:layout="@layout/fragment_tweets_list" />-->
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

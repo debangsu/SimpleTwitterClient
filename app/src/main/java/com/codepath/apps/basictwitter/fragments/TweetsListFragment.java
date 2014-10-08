@@ -42,7 +42,6 @@ public abstract class TweetsListFragment extends Fragment {
     protected ArrayList<Tweet> tweets;
     protected TweetAdapter aTweets;
     protected ListView lvTweets;
-    protected ProgressBar pbLoading;
     protected TwitterClient client;
 
     @Override
@@ -63,7 +62,6 @@ public abstract class TweetsListFragment extends Fragment {
         // TODO(debangsu): Use ViewHolder pattern.
         lvTweets = (ListView) v.findViewById(R.id.lvTweets);
         lvTweets.setAdapter(aTweets);
-        pbLoading = (ProgressBar) v.findViewById(R.id.pbLoading);
         return v;
     }
 
@@ -98,7 +96,10 @@ public abstract class TweetsListFragment extends Fragment {
      */
     protected void doLoad(String timelineEndpoint, @Nullable Long maxId,
                           @Nullable String screenName, final boolean clearAdapter) {
-        pbLoading.setVisibility(ProgressBar.VISIBLE);
+        final ProgressBar pbLoading = (ProgressBar) getActivity().findViewById(R.id.pbLoading);
+        if (pbLoading != null) {
+            pbLoading.setVisibility(ProgressBar.VISIBLE);
+        }
         client.getTimeline(timelineEndpoint, EndlessScrollListener.TWEET_COUNT_PER_GET, maxId,
                 screenName, new JsonHttpResponseHandler() {
                     @Override
@@ -109,7 +110,9 @@ public abstract class TweetsListFragment extends Fragment {
                             }
                             addAll(fromJSONArray(json));
                         } finally {
-                            pbLoading.setVisibility(ProgressBar.INVISIBLE);
+                            if (pbLoading != null) {
+                                pbLoading.setVisibility(ProgressBar.INVISIBLE);
+                            }
                         }
                     }
 
@@ -121,7 +124,9 @@ public abstract class TweetsListFragment extends Fragment {
                             Toast.makeText(getActivity(), "Fetch failure.",
                                     Toast.LENGTH_SHORT).show();
                         } finally {
-                            pbLoading.setVisibility(ProgressBar.INVISIBLE);
+                            if (pbLoading != null) {
+                                pbLoading.setVisibility(ProgressBar.INVISIBLE);
+                            }
                         }
                     }
                 });

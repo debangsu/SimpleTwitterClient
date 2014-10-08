@@ -51,8 +51,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/tweets_count_label"
+            android:id="@+id/tvTweetsCount"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/followers_label"
             android:id="@+id/tvFollowers"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:paddingRight="20dp"
             android:layout_alignParentTop="true"/>
 
@@ -61,9 +74,19 @@
             android:layout_height="wrap_content"
             android:text="@string/following_label"
             android:id="@+id/tvFollowing"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingRight="10dp"
             android:layout_alignParentTop="true"/>
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
 
     <fragment
         android:layout_width="wrap_content"

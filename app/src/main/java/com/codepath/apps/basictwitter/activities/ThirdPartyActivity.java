@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.codepath.apps.basictwitter.R;
@@ -48,6 +49,10 @@ public class ThirdPartyActivity extends ActionBarActivity {
     }
 
     private void getUserProfile(String screenName) {
+        final ProgressBar pb = (ProgressBar) findViewById(R.id.pbLoading);
+        if (pb != null) {
+            pb.setVisibility(ProgressBar.VISIBLE);
+        }
         TwitterApplication.getRestClient()
                 .getTimeline(TwitterClient.USER_TIMELINE_ENDPOINT,
                         EndlessScrollListener.TWEET_COUNT_PER_GET, null, screenName,
@@ -64,6 +69,24 @@ public class ThirdPartyActivity extends ActionBarActivity {
                                     Log.d("ERROR:  ", e.toString());
                                     Toast.makeText(ThirdPartyActivity.this, "Fetch failure.",
                                             Toast.LENGTH_SHORT).show();
+                                } finally {
+                                    if (pb != null) {
+                                        pb.setVisibility(ProgressBar.INVISIBLE);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Throwable e, String s) {
+                                try {
+                                    Log.d("ERROR:  ", e.toString());
+                                    Log.d("ERROR: ", s.toString());
+                                    Toast.makeText(ThirdPartyActivity.this, "Fetch failure.",
+                                            Toast.LENGTH_SHORT).show();
+                                } finally {
+                                    if (pb != null) {
+                                        pb.setVisibility(ProgressBar.INVISIBLE);
+                                    }
                                 }
                             }
                         });

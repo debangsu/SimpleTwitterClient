@@ -29,6 +29,7 @@ public class User implements Parcelable {
     private String description;
     private Long followersCount;
     private Long followingCount;
+    private Long tweetsCount;
 
     public User() {
     }
@@ -51,6 +52,7 @@ public class User implements Parcelable {
             user.description = jsonObject.getString("description");
             user.followersCount = jsonObject.getLong("followers_count");
             user.followingCount = jsonObject.getLong("friends_count");
+            user.tweetsCount = jsonObject.getLong("statuses_count");
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -114,6 +116,14 @@ public class User implements Parcelable {
         this.followingCount = followingCount;
     }
 
+    public Long getTweetsCount() {
+        return tweetsCount;
+    }
+
+    public void setTweetsCount(Long tweetsCount) {
+        this.tweetsCount = tweetsCount;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -128,6 +138,7 @@ public class User implements Parcelable {
         dest.writeString(description);
         dest.writeLong(followersCount);
         dest.writeLong(followingCount);
+        dest.writeLong(tweetsCount);
     }
 
     private void readFromParcel(Parcel source) {
@@ -138,5 +149,6 @@ public class User implements Parcelable {
         this.description = source.readString();
         this.followersCount = source.readLong();
         this.followingCount = source.readLong();
+        this.tweetsCount = source.readLong();
     }
 }

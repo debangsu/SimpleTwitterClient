@@ -23,5 +23,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="followers_label">n Followers</string>
     <string name="following_label">n Following</string>
+    <string name="tweets_count_label">n Tweets</string>
 
 </resources>
