@@ -39,3 +39,7 @@ Completed user stories:
 
 Walkthrough of all user stories: 
 ![Basic Twitter walkthrough](simplertwitterclient5.gif)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/debangsu/simpletwitterclient/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
